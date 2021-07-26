@@ -8,12 +8,12 @@ session_start();
 		<!--Faz o link do bootstrap-->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<title>CRUD - Cadastrar</title>		
+		<title>Cadastrar</title>		
 	</head>
 	<body>
-		<a href="index.php">Cadastrar</a><br>
-		<a href="listar_cliente.php">Listar</a><br>
-		<h1>Cadastrar Usuário</h1>
+		<h1>Cadastrar cliente</h1>
+		<a href="index.php">Cadastrar</a> <a href="listar_cliente.php">Listar</a><br>
+		<br>
 		<?php
 		if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
@@ -27,7 +27,7 @@ session_start();
 			<input type="text" class="form-control" placeholder="Nome completo" name="nome">
 		</div>
 		<div class="col">
-			<input type="text" class="form-control" placeholder="CPF" name="cpf">
+			<input type="number" class="form-control" placeholder="CPF (somente números)" name="cpf">
 		</div>
 		</div>
 		<br>
@@ -36,7 +36,7 @@ session_start();
 			<input type="text" class="form-control" placeholder="RG" name="rg">
 		</div>
 		<div class="col">
-			<input type="text" class="form-control" placeholder="Telefone" name="telefone" >
+			<input type="number" class="form-control" placeholder="Telefone(apenas números)" name="telefone" >
 		</div>
 		</div>
 		<br>
@@ -63,15 +63,15 @@ session_start();
 		</select>
 		</div>
 		</div>
-<!--		<div class="col">
-			<input type="text" class="form-control" placeholder="cidade" name="cidade">
-		</div>
-		<div class="col">
-			<input type="text" class="form-control" placeholder="estado" name="estado">
-		</div>
-		<input type="submit" value="Cadastrar">-->
 		</form>
+	
 		
+	<nav aria-label="Page navigation example">
+  		<ul class="pagination">
+    		<li class="page-item"><a class="page-link" href="index.php">Home</a></li>
+   		 	<li class="page-item"><a class="page-link" href="listar_cliente.php">Listar clientes</a></li>
+  		</ul>
+</nav>	
 	</body>
 </html>
 

@@ -12,12 +12,12 @@ $row_cliente = mysqli_fetch_assoc($resultado_cliente);
 		<meta charset="utf-8">
 		<!--É feito o link do bootstrap-->	
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<title>CRUD - Editar</title>		 
+		<title>Editar</title>		 
 	</head>
 	<body>
-		<a href="index.php">Cadastrar</a><br>
-		<a href="listar_cliente.php">Listar</a><br>
-		<h1>Editar Usuário</h1>
+		<h1>Editar cliente</h1>
+		<a href="index.php">Cadastrar</a> <a href="listar_cliente.php">Listar</a><br>
+		<br>
 		<?php
 		if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
@@ -32,7 +32,7 @@ $row_cliente = mysqli_fetch_assoc($resultado_cliente);
 			<input type="text" class="form-control" placeholder="Nome completo" name="nome" value="<?php echo $row_cliente['nome']; ?>">
 		</div>
 		<div class="col">
-			<input type="text" class="form-control" placeholder="CPF" name="cpf" value="<?php echo $row_cliente['cpf']; ?>">
+			<input type="number" class="form-control" placeholder="CPF (apenas números)" name="cpf" value="<?php echo $row_cliente['cpf']; ?>">
 		</div>
 		</div>
 		<div class="row g-3">
@@ -40,7 +40,7 @@ $row_cliente = mysqli_fetch_assoc($resultado_cliente);
 			<input type="text" class="form-control" placeholder="RG" name="rg" value="<?php echo $row_cliente['rg']; ?>">
 		</div>
 		<div class="col">
-			<input type="text" class="form-control" placeholder="Telefone" name="telefone" value="<?php echo $row_cliente['telefone']; ?>">
+			<input type="number" class="form-control" placeholder="Telefone (apenas números)" name="telefone" value="<?php echo $row_cliente['telefone']; ?>">
 		</div>
 		</div>
 		<div class="row g-3">
@@ -59,8 +59,8 @@ $row_cliente = mysqli_fetch_assoc($resultado_cliente);
 			<input type="text" class="form-control" placeholder="Endereço" name="endereco" value="<?php echo $row_cliente['endereco']; ?>">
 		</div>
 		</div>	
-			
-			<input type="submit" value="Editar">
+		<br>
+		<input type="submit" value="Editar">
 		</form>
 	</body>
 </html>

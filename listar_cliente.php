@@ -6,12 +6,13 @@ include_once("conexao.php");
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
-		<title>CRUD - Listar</title>		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<title>Listar</title>		
 	</head>
 	<body>
-		<a href="index.php">Cadastrar</a><br>
-		<a href="listar_cliente.php">Listar</a><br>
-		<h1>Listar Usuário</h1>
+		<h1>Listar cliente</h1>
+		<a href="index.php">Cadastrar</a> <a href="listar_cliente.php">Listar</a><br>
+		<br><br>
 		<?php
 		if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
@@ -40,38 +41,9 @@ include_once("conexao.php");
 			echo "Estado: " . $row_cliente['estado'] . "<br>";
 			echo "Cidade: " . $row_cliente['cidade'] . "<br>";
 			echo "Endereco: " . $row_cliente['endereco'] . "<br>";
-			echo "<a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br>";
+			echo "<br><a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br>";
 			echo "<a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br><hr>";
-		}
-		
-		//Paginção - Somar a quantidade de usuários
-		$result_pg = "SELECT COUNT(id) AS num_result FROM cliente";
-		$resultado_pg = mysqli_query($conn, $result_pg);
-		$row_pg = mysqli_fetch_assoc($resultado_pg);
-		//echo $row_pg['num_result'];
-		//Quantidade de pagina 
-		$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
-		
-		//Limitar os link antes depois
-		$max_links = 2;
-		echo "<a href='listar_cliente.php?pagina=1'>Primeira</a> ";
-		
-		for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
-			if($pag_ant >= 1){
-				echo "<a href='listar_cliente.php?pagina=$pag_ant'>$pag_ant</a> ";
-			}
-		}
-			
-		echo "$pagina ";
-		
-		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
-			if($pag_dep <= $quantidade_pg){
-				echo "<a href='listar_cliente.php?pagina=$pag_dep'>$pag_dep</a> ";
-			}
-		}
-		
-		echo "<a href='listar_cliente.php?pagina=$quantidade_pg'>Ultima</a>";
-		
+		}		
 		?>		
 	</body>
 </html>

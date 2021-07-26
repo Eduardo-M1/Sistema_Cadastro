@@ -2,7 +2,7 @@
 session_start();
 include_once("conexao.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-if(!empty($id)){
+if(!empty($id)) {
 	$result_cliente = "DELETE FROM clientes WHERE id='$id'";
 	$resultado_cliente = mysqli_query($conn, $result_cliente);
 	if(mysqli_affected_rows($conn)){

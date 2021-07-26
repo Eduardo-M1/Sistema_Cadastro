@@ -12,7 +12,7 @@ $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_EMAIL);
 $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_EMAIL);
 
-//Enviando para o SQL
+//Enviando para o SQL.
 $result_cliente = "INSERT INTO clientes (nome, cpf, rg, telefone, email, estado, cidade, endereco) VALUES ('$nome', '$cpf','$rg','$telefone','$email','$estado','$cidade','$endereco')";
 $resultado_cliente = mysqli_query($conn, $result_cliente);
 

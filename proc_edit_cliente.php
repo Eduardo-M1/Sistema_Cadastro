@@ -11,7 +11,7 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_EMAIL);
 $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_EMAIL);
-
+ 
 $result_cliente = "UPDATE clientes SET nome='$nome', cpf='$cpf', rg='$rg', telefone='$telefone', email='$email', estado='$estado', cidade='$cidade', endereco='$endereco' WHERE id='$id'";
 $resultado_cliente = mysqli_query($conn, $result_cliente);
 
